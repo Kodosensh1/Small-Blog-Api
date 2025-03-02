@@ -1,140 +1,288 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backend Developer İnkişaf Bələdçisi</title>
+    <title>Backend Developer Bələdçisi</title>
     <style>
-        /* Sıfırlama və əsas stil */
+        /* Genel stil */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
-        /* Dark mode əsas fon */
         body {
-            background-color: #121212;
-            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
             line-height: 1.6;
-            padding: 20px;
-            transition: background 0.3s ease;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* Header */
-        .header {
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 30px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
             text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            color: #00bcd4;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #aaaaaa;
-        }
-
-        /* Məqalə container */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #1e1e1e;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.3);
-            transition: 0.3s;
-        }
-
-        .container:hover {
-            transform: scale(1.02);
-            box-shadow: 0px 0px 25px rgba(0, 188, 212, 0.6);
-        }
-
-        h2 {
-            color: #00bcd4;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            color: #cccccc;
-        }
-
-        /* Siyahılar */
-        ul {
-            list-style: none;
-            margin-top: 10px;
-        }
-
-        ul li {
-            background: rgba(0, 188, 212, 0.2);
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        ul li:hover {
-            background: rgba(0, 188, 212, 0.4);
-            transform: translateX(5px);
-        }
-
-        /* Altbilgi */
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        /* Cool yazı effekti */
-        .cool-text {
-            font-size: 2rem;
             font-weight: bold;
-            text-align: center;
-            margin-top: 20px;
-            color: #ff4081;
-            text-shadow: 0 0 15px rgba(255, 64, 129, 0.7);
         }
+
+        /* Navigation */
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav li {
+            display: inline;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Main content */
+        main {
+            padding: 50px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        section p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        section a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        section a:hover {
+            color: #0056b3;
+        }
+
+        /* Button */
+        .scroll-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .scroll-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 50px;
+        }
+
+        /* Karanlık Mod */
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        nav a {
+            color: #ffffff;
+        }
+
+        nav a:hover {
+            color: #ff9800;
+        }
+
+        header {
+            background-color: #1f1f1f;
+        }
+
+        footer {
+            background-color: #1f1f1f;
+        }
+
+        /* Karanlık mod butonu */
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <h1>Backend Developer-lər üçün İnkişaf Bələdçisi</h1>
-        <p>İxtisasını necə inkişaf etdirə bilərsən? 🚀</p>
-    </div>
-
-    <div class="container">
-        <h2>1. Güclü Bir Proqramlaşdırma Dili Seç</h2>
-        <p>Backend development üçün Python (Django/FastAPI), Node.js və ya Java ən çox istifadə edilən dillərdən biridir.</p>
-
-        <h2>2. Məlumat Bazası Biliklərini Gücləndir</h2>
-        <p>PostgreSQL, MySQL və MongoDB kimi verilənlər bazaları haqqında bilik sahibi ol.</p>
-
-        <h2>3. REST API və GraphQL Öyrən</h2>
-        <p>Backend inkişafında API-lərin necə işlədiyini başa düşmək vacibdir.</p>
-
-        <h2>4. Git və Version Kontrol Sistemlərindən İstifadə Et</h2>
-        <p>GitHub və Git ilə komanda işi və kod versiyalaşdırma bacarıqlarını inkişaf etdir.</p>
-
-        <h2>5. Server və DevOps Biliklərini Artır</h2>
+    <header>
+        <div class="container">
+            <h1>Backend Developer Bələdçisi</h1>
+            <button id="darkModeToggle" class="toggle-btn">🌙</button>
+        </div>
+    </header>
+    
+    <nav>
         <ul>
-            <li>Docker və Kubernetes öyrən</li>
-            <li>Linux serverlərini idarə etməyi bacar</li>
-            <li>CI/CD ilə avtomatlaşdırma proseslərini anla</li>
+            <li><a href="#section1">Proqramlaşdırma Dilləri</a></li>
+            <li><a href="#section2">Məlumat Bazaları</a></li>
+            <li><a href="#section3">REST API və GraphQL</a></li>
+            <li><a href="#section4">Git və Versiya Nəzarəti</a></li>
+            <li><a href="#section5">DevOps və CI/CD</a></li>
+            <li><a href="#section6">Authentication və Security</a></li>
+            <li><a href="#section7">Caching və Performance</a></li>
+            <li><a href="#section8">WebSockets və Real-Time Communication</a></li>
+            <li><a href="#section9">Microservices Arxitekturası</a></li>
+            <li><a href="#section10">Serverless Computing</a></li>
         </ul>
-    </div>
+    </nav>
+    
+    <main>
+        <section id="section1">
+            <h2>Proqramlaşdırma Dilləri</h2>
+            <p>Backend development üçün ən məşhur dillər: <b>Python, Java, Node.js, Go</b> və s.</p>
+            <a href="https://roadmap.sh/backend">Daha ətraflı</a>
+        </section>
+        
+        <section id="section2">
+            <h2>Məlumat Bazaları</h2>
+            <p>PostgreSQL, MySQL və MongoDB haqqında məlumat.</p>
+            <a href="https://www.postgresql.org/docs/">Daha ətraflı</a>
+        </section>
+        
+        <section id="section3">
+            <h2>REST API və GraphQL</h2>
+            <p>REST və GraphQL fərqləri, üstünlükləri və istifadəsi.</p>
+            <a href="https://graphql.org/learn/">Daha ətraflı</a>
+        </section>
+        
+        <section id="section4">
+            <h2>Git və Versiya Nəzarəti</h2>
+            <p>Git və GitHub istifadə edərək kod versiyalarını idarə etmə.</p>
+            <a href="https://git-scm.com/doc">Daha ətraflı</a>
+        </section>
+        
+        <section id="section5">
+            <h2>DevOps və CI/CD</h2>
+            <p>CI/CD və avtomatlaşdırma haqqında biliklər.</p>
+            <a href="https://www.atlassian.com/continuous-delivery">Daha ətraflı</a>
+        </section>
+        
+        <section id="section6">
+            <h2>Authentication və Security</h2>
+            <p>JWT, OAuth və digər authentication metodları.</p>
+            <a href="https://auth0.com/docs">Daha ətraflı</a>
+        </section>
+        
+        <section id="section7">
+            <h2>Caching və Performance</h2>
+            <p>Redis, Memcached və performans optimizasiyası.</p>
+            <a href="https://redis.io/docs/">Daha ətraflı</a>
+        </section>
+        
+        <section id="section8">
+            <h2>WebSockets və Real-Time Communication</h2>
+            <p>WebSockets və real-time tətbiqlər.</p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">Daha ətraflı</a>
+        </section>
+        
+        <section id="section9">
+            <h2>Microservices Arxitekturası</h2>
+            <p>Monolit və microservices arxitekturası fərqləri.</p>
+            <a href="https://microservices.io/">Daha ətraflı</a>
+        </section>
+        
+        <section id="section10">
+            <h2>Serverless Computing</h2>
+            <p>Serverless computing və cloud funksiyaları.</p>
+            <a href="https://aws.amazon.com/serverless/">Daha ətraflı</a>
+        </section>
+    </main>
+    
+    <button id="scrollToTopBtn" class="scroll-btn">⬆</button>
+    
+    <footer>
+        <p>Built by Farid | Copyright © 2025</p>
+    </footer>
 
-    <div class="cool-text">Farid burada idi! ⚡</div>
+    <script>
+        // Karanlık Mod Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
 
-    <div class="footer">
-        <p>Copyright &copy; 2025 | Backend Development Blog</p>
-    </div>
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
 
+        // Sayfa Başına Dön Butonu
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Kullanıcı sayfayı aşağı kaydırdığında butonu göster
+        window.addEventListener('scroll', () => {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Butona tıklandığında sayfayı başa sar
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
